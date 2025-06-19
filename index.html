@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Akash Jaiswar | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: red;
+      --bg-light: #121212;
+      --bg-dark: #121212;
+      --text-light: #ffffff;
+      --text-dark: #ffffff;
+    }
+    html {
+  scroll-padding-top: 80px; /* match your header height */
+}
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    header {
+  background: #1a1a1a;
+  color: var(--text-light);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .logo {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    #toggle-dark {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    #toggle-dark:hover {
+      transform: scale(1.1);
+    }
+    .home-section {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .home-content .profile-pic {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 6px solid var(--primary);
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+    .home-content .profile-pic:hover {
+      transform: scale(1.05);
+    }
+    .highlight {
+      color: var(--primary);
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 1rem;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn-primary:hover {
+      background: #c40000;
+      transform: scale(1.05);
+    }
+    .section {
+      padding: 3rem 2rem;
+    }
+    .dark-section {
+      background: #1e1e1e;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  background: var(--primary);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 120px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 0 rgba(255, 0, 0, 0);
+}
+    .skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px red;
+}
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+  background: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+    .project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px red;
+}
+    .project-card img {
+      width: 100%;
+      height: auto;
+    }
+    .project-info {
+      padding: 1rem;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem;
+      border-radius: 4px;
+      border: 1px solid #444;
+      font-size: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #000;
+      color: #fff;
+    }
+    
+      
+    .about-box {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .about-box:hover {
+  box-shadow: 0 0 20px red;
+  transform: translateY(-5px);
+}
+    .about-box {
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+      cursor: pointer;
+    }
+    .about-box:hover {
+      box-shadow: 0 0 25px red;
+      transform: translateY(-8px);
+    }
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 0;
+    width: 100%;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  .about-box {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+</style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Akash</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      
+    </nav>
+  </header>
+
+  <section id="home" class="home-section" data-aos="fade-up">
+    <div class="home-content">
+      <img src="akash.jpg" alt="Akash Jaiswar" class="profile-pic" />
+      <h1>Hi, I'm <span class="highlight">Akash Jaiswar</span></h1>
+      <p>Data Analyst | SQL | Power BI | Python | Excel</p>
+      <a href="#contact" class="btn-primary">Hire Me</a>
+    </div>
+  </section>
+
+  <section id="about" class="section dark-section" data-aos="fade-right">
+    <h2>About Me</h2>
+    <p>I am a passionate data analyst with a knack for transforming raw data into actionable insights. I thrive on solving real-world business challenges using analytics and visualization.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+      <div class="about-box" style="flex: 1; min-width: 280px; background: #1e1e1e; padding: 1rem; border-radius: 8px;">
+        <h3 style="color: var(--primary);">Experience</h3>
+        <ul>
+          <li><strong>Data Analyst Intern</strong> - AI Variant (6 months)</li>
+          <li><strong>Project:</strong> Adventure Work & Healthcare</li>
+        </ul>
+      </div>
+      <div class="about-box" style="flex: 1; min-width: 280px; background: #1e1e1e; color: var(--text-light); padding: 1rem; border-radius: 8px;">
+        <h3 style="color: var(--primary);">Education</h3>
+        <ul>
+          <li><strong>Bachelor's Degree</strong> - Satish Pradhan Dnyansadhna college Thane</li>
+          <li><strong>Certified Data Analyst</strong> - ExcelR</li>
+        </ul>
+      </div>
+      <div class="about-box" style="flex: 1; min-width: 280px; background: #1e1e1e; color: var(--text-light); padding: 1rem; border-radius: 8px;">
+        <h3 style="color: var(--primary);">Address</h3>
+        <ul>
+          <li> Airoli, Navi Mumbai - <strong>Maharashtra</strong></li>
+          <li><strong>Pin Code</strong> - 400708</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section" data-aos="fade-left">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><i class="fas fa-database"></i><span>SQL</span></div>
+      <div class="skill-item"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
+      <div class="skill-item"><i class="fas fa-file-excel"></i><span>Excel</span></div>
+      <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
+      <div class="skill-item"><i class="fas fa-code"></i><span>Pandas</span></div>
+    </div>
+  </section>
+
+  <section id="projects" class="section dark-section" data-aos="zoom-in">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <img src="Adw-1.png" alt="Sales Dashboard">
+        <div class="project-info">
+          <h3>Adventure Works</h3>
+          <p>Built a Power BI dashboard to analyze and visualize sales data for strategic decision-making.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="Healthcare.png" alt="Churn Analysis">
+        <div class="project-info">
+          <h3>Healthcare Analysis</h3>
+          <p>Analyze healthcare data to drive operational and clinical improvements.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="Music.png" alt="Marketing Insights">
+        <div class="project-info">
+          <h3>SQL Project </h3>
+          <p>Music store data analysis using posgreSQL.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
+  <h2 style="text-align: center;">Contact</h2>
+  <div style="display: flex; flex-direction: column; align-items: center; font-size: 1.2rem; gap: 1rem;">
+    <p style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-envelope" style="color: var(--primary); margin-right: 0.5rem;"></i><a href="mailto:akashjaiswar97944@email.com" style="color: var(--text-light); text-decoration: none;">akashjaiswar97944@email.com</a>
+    </p>
+    <p style="display: flex; align-items: center; gap: 0.5rem;"><i class="fab fa-linkedin" style="color: var(--primary); margin-right: 0.5rem;"></i><a href="https://www.linkedin.com/in/akash-jaiswar-21j/" target="_blank" style="color: var(--text-light); text-decoration: none;">linkedin.com/in/akashjaiswar</a>
+    </p>
+    <p style="display: flex; align-items: center; gap: 0.5rem;">
+      <i class="fab fa-github" style="color: var(--primary);"></i>
+      <a href="https://github.com/akashjaiswar" target="_blank" style="color: var(--text-light); text-decoration: none;">github.com/akashjaiswar</a>
+    </p>
+     <a href="Akash_resume.pdf" target="_blank" class="btn-primary" style="margin-top: 1rem;">View Resume</a>
+  </div>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Akash Jaiswar. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+  <script>
+  AOS.init({ duration: 1200 });
+</script>
